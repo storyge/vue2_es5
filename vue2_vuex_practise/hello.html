@@ -11,29 +11,25 @@
         <button v-on:click="buttonClick">Click Me</button>
     </div>
     <script type="text/javascript">
-        var store = new Vuex.Store(
-            {
-                state: {
-                    count: 0
-                },
-                mutations: {
-                    increment(state) {
-                        state.count++
-                    }
+        var store = new Vuex.Store({
+            state: {
+                count: 0
+            },
+            mutations: {
+                increment(state) {
+                    state.count++
                 }
             }
-        )
-        new Vue(
-            {
-                'el': '#app',
-                'store': store,
-                'methods': {
-                    'buttonClick': function () {
-                        this.$store.commit('increment')
-                    }
+        })
+        new Vue({
+            'el': '#app',
+            'store': store,
+            'methods': {
+                'buttonClick': function () {
+                    this.$store.commit('increment')
                 }
             }
-        )
+        })
     </script>
 </body>
 
