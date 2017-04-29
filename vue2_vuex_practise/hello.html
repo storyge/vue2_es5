@@ -31,7 +31,7 @@
             'store': store,
             'methods': {
                 'add': function () {
-                    this.$store.commit('increment')
+                    this.$store.commit('increment') //commit必须同步,dispatch action没这种要求
                 },
                 'sub':function(){
                     this.$store.commit('decrement')
