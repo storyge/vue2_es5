@@ -1,36 +1,40 @@
 <html>
-  <head>
+
+<head>
     <script src="../../node_modules/vue/dist/vue.js"></script>
     <script src="../../node_modules/vuex/dist/vuex.js"></script>
-  </head>
-  <body>
+</head>
+
+<body>
     <div id="app">
-      <div>{{ $store.state.count }}</div>
-      <button v-on:click="buttonClick">Click Me</button>
+        <div>{{ $store.state.count }}</div>
+        <button v-on:click="buttonClick">Click Me</button>
     </div>
     <script type="text/javascript">
-      new Vue(
-        {
-          'el': '#app',
-          'store': new Vuex.Store(
+        var store = new Vuex.Store(
             {
-              state: {
-                count: 0
-              },
-              mutations: {
-                increment (state) {
-                  state.count++
+                state: {
+                    count: 0
+                },
+                mutations: {
+                    increment(state) {
+                        state.count++
+                    }
                 }
-              }
             }
-          ),
-          'methods': {
-            'buttonClick': function() {
-              this.$store.commit('increment')
+        )
+        new Vue(
+            {
+                'el': '#app',
+                'store': store,
+                'methods': {
+                    'buttonClick': function () {
+                        this.$store.commit('increment')
+                    }
+                }
             }
-          }
-        }
-      )
+        )
     </script>
-  </body>
+</body>
+
 </html>
